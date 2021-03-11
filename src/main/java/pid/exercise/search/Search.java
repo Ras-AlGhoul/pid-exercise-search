@@ -9,16 +9,60 @@ package pid.exercise.search;
  */
 public class Search {
 
-    public static int linearSearch(int[] array, int value) {
-        // TODO Implement linear search
-        return 0;
+    public static int linearSearch(int[] array, int value){
+        for(int i=0;i<array.length;i++){
+            if(array [i]  == value){
+                return i;
+            }
+        }
+        return -1;
     }
 
-    public static int binarySearch(int[] array, int value) {
-        // TODO Implement iterative binary search
-        return 0;
+    // Returns index of x if it is present in arr[],
+    // else return -1
+   public static int binarySearch(int[] array, int value)
+    {
+        int l = 0, r = array.length - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+
+            // Check if x is present at mid
+            if (array[m] == value)
+                return m;
+
+            // If x greater, ignore left half
+            if (array[m] < value)
+                l = m + 1;
+
+                // If x is smaller, ignore right half
+            else
+                r = m - 1;
+        }
+
+        // if we reach here, then element was
+        // not present
+        return -1;
     }
 
+    // Driver method to test above
+    public static void main(String args [])
+    {
+        Search binarySearch = new Search();
+        int arr[] = { 2, 3, 4, 10, 40 };
+        int n = arr.length;
+        int x = 10;
+        int result = binarySearch.binarySearch(arr, x);
+        if (result == -1)
+            System.out.println("Element not present");
+        else
+            System.out.println("Element found at "
+                    + "index " + result);
+    }
+
+
+
+
+    //optional
     public static int binarySearchRecursive(int[] array, int value) {
         // TODO Implement recursive binary search
         return 0;
