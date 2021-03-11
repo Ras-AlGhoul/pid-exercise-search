@@ -202,7 +202,7 @@ public class SearchTest {
         Arrays.sort(array);
 
         assertEquals(-1,
-                Search.binarySearchRecursive(array, 17));
+                Search.binarySearchRecursive(array, 17 ));
     }
 
     /**
